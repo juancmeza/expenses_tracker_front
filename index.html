@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script defer src='src/index.js'></script>
+</head>
+<body class="bg-dark text-light" id="body">
+
+<header>
+    <nav class="navbar navbar-light bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-brand mb-0 h1 text-light">
+                <span class="logo">
+                    <svg width="80.562802653712716" height="48.562802653712716"
+                         viewBox="0 0 48.562802653712716 48.562802653712716" class="css-1j8o68f">
+                    <defs id="SvgjsDefs4717"></defs>
+                    <g id="SvgjsG4718" featurekey="Df7oLJ-0"
+                       transform="matrix(1.3465910957867424,0,0,1.3465910957867424,-1.8621024233089138,-9.38363676230878)"
+                       fill="#ffffff">
+                        <g xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff"
+                                  d="M24.808,6.982c12.998-0.254,23.552,3.092,23.682,7.34   c0,4.375-10.427,8.107-23.426,8.363c-12.998,0.258-23.552-2.959-23.68-7.336C1.255,10.976,11.809,7.242,24.808,6.982L24.808,6.982z    M24.808,8.398C14.125,8.658,5.501,11.748,5.63,15.22c0,3.605,8.753,6.307,19.434,6.049c10.682-0.256,19.306-3.219,19.177-6.82   C44.111,10.843,35.487,8.144,24.808,8.398L24.808,8.398z M24.937,17.796h1.029l-0.129-0.646c1.286,0,2.315-0.127,3.088-0.514   c0.773-0.258,1.158-0.643,1.158-1.029c0-0.129-0.129-0.258-0.385-0.514c-0.128-0.131-0.389-0.258-0.773-0.385   c-0.385-0.131-0.772-0.131-1.285-0.26c-0.387,0-0.901,0-1.803-0.127v-1.676c0.513,0,1.028,0.129,1.286,0.258   c0.387,0.127,0.645,0.256,0.645,0.516l1.803-0.129c-0.129-0.387-0.516-0.645-1.287-0.902c-0.644-0.127-1.418-0.258-2.446-0.258   v-0.254h-1.029v0.254c-1.158,0.131-2.061,0.258-2.703,0.389c-0.902,0.256-1.286,0.641-1.286,1.027c0,0.26,0.129,0.518,0.513,0.645   c0.259,0.258,0.646,0.387,1.287,0.387c0.772,0.131,1.417,0.258,2.189,0.258v1.928c-0.645-0.127-1.287-0.127-1.673-0.385   c-0.388-0.127-0.646-0.385-0.772-0.643l-1.803,0.129c0.129,0.258,0.259,0.514,0.771,0.771c0.388,0.127,0.773,0.387,1.416,0.387   c0.514,0.127,1.288,0.127,2.061,0.127L24.937,17.796L24.937,17.796z M24.808,12.646c-0.772,0.129-1.287,0.129-1.673,0.385   c-0.388,0.129-0.517,0.26-0.517,0.516c0,0.131,0.129,0.387,0.517,0.518c0.256,0,0.9,0.127,1.673,0.258V12.646L24.808,12.646z    M25.837,16.636c0.772,0,1.286-0.129,1.673-0.258c0.513-0.256,0.773-0.385,0.773-0.643s-0.261-0.387-0.516-0.516   c-0.386-0.127-1.029-0.258-1.931-0.258V16.636L25.837,16.636z M47.972,17.15c-1.801,3.992-11.327,7.209-22.908,7.465   C13.609,24.873,3.959,22.042,2.029,18.05c-0.259,0.516-0.389,1.031-0.259,1.547c0,4.631,10.553,8.105,23.422,7.849   c12.87-0.258,23.167-4.246,23.167-8.88C48.359,18.05,48.23,17.666,47.972,17.15L47.972,17.15z M48.099,21.654   c-1.928,3.992-11.322,7.208-22.906,7.466c-11.453,0.258-21.106-2.576-23.036-6.562c-0.257,0.512-0.386,1.027-0.386,1.543   c0.129,4.632,10.682,8.107,23.552,7.851c12.869-0.258,23.167-4.25,23.037-8.882C48.359,22.558,48.23,22.169,48.099,21.654   L48.099,21.654z M48.099,26.933c0.261,0.514,0.391,1.029,0.391,1.416c0.127,4.631-10.167,8.621-23.039,8.877   c-12.871,0.262-23.421-3.215-23.551-7.848c0-0.516,0.13-1.029,0.386-1.416c1.931,3.859,11.582,6.693,23.037,6.434   C36.904,34.142,46.299,30.921,48.099,26.933L48.099,26.933z M48.23,32.722c-1.803,3.992-11.326,7.209-22.78,7.336   c-11.454,0.258-21.107-2.443-23.165-6.432c-0.129,0.516-0.256,1.029-0.256,1.414c0.127,4.635,10.55,8.236,23.421,7.979   c12.872-0.258,23.295-4.246,23.166-8.877C48.616,33.626,48.489,33.108,48.23,32.722z">
+
+                            </path>
+                        </g>
+                    </g>
+                </svg>
+                </span>
+                Expenses Tracker
+            </div>
+            <div class="hidden navbar-brand mb-0 text-light" id="user-info">
+                <span id="welcome-user"></span>
+                <button class="btn btn-secondary btn-sm" type="button" id="user-logout">Log Out</button>
+                <button class="btn btn-dark btn-sm" type="button" id="user-delete">Delete Account</button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!--Login Form-->
+<div class="container" id="login-form">
+    <form>
+        <div class="mb-3">
+            <label class="form-label">User name</label>
+            <input type="text" class="form-control" id="user-name">
+            <div id="nameHelp" class="form-text">Enter existing user name or create a new user.</div>
+        </div>
+        <button type="submit" class="btn btn-success" id="user-login">Submit</button>
+    </form>
+
+</div>
+
+<main role="main" class="hidden container" id="main">
+    <div style="display: flex; justify-content: flex-end">
+        <h4 id="budget-amount"></h4> &nbsp; &nbsp;
+        <button class="btn btn-outline-light btn-sm" type="button" id="budget-edit">Edit</button>
+    </div>
+    <br>
+    <!--    Budget form-->
+    <div class="budget hidden" style="justify-content: flex-end">
+        <div class="input-group mb-3" id="budget" style="width:40%">
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            <input type="text" class="form-control input-sm" aria-label="Amount (to the nearest dollar)"
+                   placeholder="Set monthly budget" id="set-budget-input">
+            <div class="input-group-append">
+                <span class="input-group-text">.00</span>
+            </div>
+
+            <button class="btn btn-outline-success" type="button" id="budget-submit">Submit</button>
+        </div>
+    </div>
+
+    <!--    Add an expense Form-->
+    <div class="container px-5" id='form-expense'>
+            <div class="d-flex justify-content-center" style="width: -moz-fit-content">
+                <h3>Add an expense</h3>
+            </div>
+
+            <form id="expense-form" class="input-group d-flex justify-content-center">
+                <select class="form-select" >
+                    <option selected>Select a category</option>
+                </select>
+                &nbsp;
+                <input type="text" name="description" value="" placeholder="Description" class="input-text">
+                &nbsp;
+                <span class="input-group-text">$</span>
+                <input type="float" name="amount" value="" placeholder="10.00" class="input-text">
+                &nbsp;
+                <input type="date" name="date" data-date-inline-picker="true" />
+                &nbsp; &nbsp;
+                <input type="submit" name="submit" value="Add Expense" class="submit btn btn-success">
+            </form>
+    </div>
+    <br><br><br>
+    <!--Edit expense Form-->
+    <div class = 'edit expense hidden'>
+        <div id = 'edit-expense'>
+            <form id = "expense-form-edit">
+                <select class="form-select-edit" aria-label="Category">
+                    <option selected>Select a category</option>
+
+                </select>
+                <br>
+                <input
+                        type="text"
+                        name="description"
+                        value=""
+                        placeholder="Enter a description"
+                        class="input-text"
+                />
+                <br />
+                <input
+                        type="float"
+                        name="amount"
+                        value=""
+                        placeholder="10.00"
+                        class="input-text"
+                />
+                <br />
+                <input
+                        type="date"
+                        name="date"
+                        value=""
+                        class="input-text"
+                        data-date-inline-picker="true"
+                />
+                <br />
+
+                <input
+                        type="submit"
+                        name="submit"
+                        value="Edit Expense"
+                        class="btn btn-outline-success"
+                />
+            </form>
+        </div>
+    </div>
+
+
+    <!--    Expenses by category-->
+    <div class="container" id="grouped-expenses">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <h2>Expenses by category</h2>
+                <table class="table table-dark table-striped table-borderless">
+                    <thead>
+                    <tr>
+                        <th style="width:60%" scope="col">Category</th>
+                        <th style="width:40%" scope="col">Total Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody id="grouped-expenses-body">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 categories-chart">
+                <canvas id="myChart"></canvas>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+                <script>
+                    <!--pie  chart-->
+                </script>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!--    Detailed Expenses Info-->
+    <div id='user-expenses'>
+        <h2>Detailed Expenses Info</h2>
+        <table class="table table-dark table-sm">
+            <thead>
+            <tr>
+                <th style="width:30%" scope="col">Category</th>
+                <th style="width:20%" scope="col">Description</th>
+                <th style="width:15%" scope="col">Amount</th>
+                <th style="width:15%" scope="col">Date</th>
+                <th style="width:10%" scope="col"></th>
+                <th style="width:10%" scope="col"></th>
+            </tr>
+            </thead>
+            <tbody id='expenses-table-body'>
+
+            </tbody>
+        </table>
+    </div>
+
+</main>
+
+
+<footer class="footer bg-dark">
+    <div class="container">
+        <span class="text-light">© 2021 [Alena Trushnikova <a href="https://github.com/AlenaTrushnikova">gthb</a>
+            <a href="https://www.linkedin.com/in/atrushnikova/">lnkd</a> ] &nbsp;
+            [Juan Carlos Meza <a href="https://github.com/juancmeza">gthb</a> <a
+                href="https://www.linkedin.com/in/juan-meza-36065974/">lnkd</a> ] </span>
+    </div>
+</footer>
+</body>
+</html>
