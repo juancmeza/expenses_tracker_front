@@ -10,7 +10,6 @@ const EXPENSES_URL = `${BASE_URL}/expenses`
 var User = {}
 
 
-
 //Expenses by Categories
 function buildGroupedExpenses(user) {
     fetch(GROUPED_EXPENSES_URL + `/${user.id}`)
