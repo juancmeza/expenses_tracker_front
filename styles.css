@@ -56,3 +56,11 @@ code {
 .categories-chart{
     padding-top: 60px;
 }
+
+.select-category {
+    width: 300px;
+}
+
+.user-expenses-table {
+    width: 300px;
+}
