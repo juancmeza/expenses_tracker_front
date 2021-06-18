@@ -61,6 +61,12 @@ code {
     width: 300px;
 }
 
-.user-expenses-table {
-    width: 300px;
+
+.mobile-hide {
+    display: flex;
 }
+
+@media screen and (max-width: 768px) {
+    .mobile-hide {
+      display: none;
+    }
