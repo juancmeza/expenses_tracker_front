@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     userLogin()
 })
 
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "https://bestexpensestracker.herokuapp.com"
 const USERS_URL = `${BASE_URL}/users`
 const GROUPED_EXPENSES_URL = `${USERS_URL}/expenses_by_categories`
 const CATEGORIES_URL = `${BASE_URL}/categories`
@@ -97,7 +97,7 @@ function addExpenseToTable(expense) {
     category.textContent = expense.category.name
     tdEditBtn.append(editBtn)
     tdDeleteBtn.append(deleteBtn)
-    tr.append(category, description, amount, date, tdEditBtn, tdDeleteBtn, tdEditForm)
+    tr.append(tdEditForm, description, amount, date, tdEditBtn, tdDeleteBtn)
     tableBody.appendChild(tr)
 }
 
@@ -140,7 +140,7 @@ function handleExpenseEdit(e) {
         userId: User.id
     }
 
-    fetch(`http://localhost:3000/expenses/${expId}`,{
+    fetch(`${BASE_URL}/expenses/${expId}`,{
         method:'PATCH',
         headers: {
             "Content-Type": "application/json",
@@ -229,7 +229,7 @@ function addEventListenerToExpenseForm(user){
 }
 
 function addNewExpense(expense){
-    fetch(`http://localhost:3000/expenses`,{
+    fetch(`${BASE_URL}/expenses`,{
         method:'POST',
         headers: {
             "Content-Type": "application/json",
