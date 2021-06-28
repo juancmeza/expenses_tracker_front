@@ -377,7 +377,7 @@ function handleDeleteAccount(e) {
         })
 }
 
-//Pie chart
+//Doughnut chart
 function drawChart(categories) {
     let categoriesLabels = []
     let categoriesValues = []
@@ -415,7 +415,8 @@ function drawChart(categories) {
                     'rgba(246, 102, 255, 1)', //16
                     'rgba(137, 137, 137, 1)', //17
                 ],
-                data: categoriesValues
+                hoverOffset: 10,
+                data: categoriesValues,
             }]
         },
 
