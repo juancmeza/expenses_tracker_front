@@ -322,6 +322,18 @@ function handleLogin(e) {
     if (userName == "") {
         return
     }
+
+    let loginForm = document.querySelector('#login-form')
+    loginForm.className = "hidden"
+
+    var el = document.getElementById('loading'),
+    i = 0,
+    load = setInterval(function() {
+      i = ++i % 4;
+      el.innerHTML = 'Loading' + Array(i + 1).join('.');
+      }, 600);
+    el.className='loadingMessage'
+
     fetch(USERS_URL, {
         method: 'POST',
         headers: {
@@ -341,8 +353,8 @@ function setupUI(user) {
     let userInfo = document.querySelector('#user-info')
     userInfo.className = "navbar-brand mb-0 text-light"
 
-    let loginForm = document.querySelector('#login-form')
-    loginForm.className = "hidden"
+    let el = document.getElementById('loading')
+    el.remove()
 
     let welcomeSpan = document.querySelector('#welcome-user')
     welcomeSpan.textContent = "Hi, " + `${user.name}`
