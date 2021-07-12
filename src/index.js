@@ -103,9 +103,13 @@ function addExpenseToTable(expense) {
 
 function displayEditExpense(expense) {
     let hiddenTd = document.getElementById(`${expense.id}-exp-edit`)
+    let headerRow = document.getElementById('headerRow')
 
     if (hiddenTd.classList.contains("hidden")) {
         let editExpForm = document.getElementById('edit-expense')
+        let editHeader = document.createElement('th')
+        editHeader.innerHTML = 'Edit'
+        editHeader.id = 'editHeader'
 
         // editExpForm.id = `${expense.id}`
         editExpForm.id = `exp-edit-form-${expense.id}`
@@ -113,12 +117,17 @@ function displayEditExpense(expense) {
         editExpForm.className = 'exp-edit'
         hiddenTd.append(editExpForm)
         hiddenTd.className = 'edit td'
+
+        //Append header at beginning of row
+        headerRow.insertBefore(editHeader, headerRow.firstChild)
+
     } else {
         restoreExpenseEditForm(expense.id)
 
         hiddenTd.className = 'hidden edit td'
 
         hiddenTd.innerHTML = ''
+
     }
 
 }
@@ -164,6 +173,7 @@ function restoreExpenseEditForm(expenseId) {
     expFormEditReset.reset()
     let body = document.querySelector('#body')
     body.append(editExpForm)
+    editHeader.remove()
 }
 
 //Delete Expenses and Update TWO tables (expenses by categories and detailed Info)
@@ -431,4 +441,3 @@ function drawChart(categories) {
         }
     });
 }
-
