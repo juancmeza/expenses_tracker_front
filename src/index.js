@@ -333,6 +333,7 @@ function handleLogin(e) {
       el.innerHTML = 'Loading' + Array(i + 1).join('.');
       }, 600);
     el.className='loadingMessage'
+    el.display='flex'
 
     fetch(USERS_URL, {
         method: 'POST',

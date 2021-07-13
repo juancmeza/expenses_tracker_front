@@ -73,10 +73,13 @@ code {
 }
 
 #loading {
-  background-color: #3498DD;
+  background-color: #0B6623;
   padding: 8px 16px;
   border-radius: 5px;
   color: #FEFEFE;
   font: 20px 'Helvetica';
   text-transform: uppercase;
-}    
+  position: absolute;
+  top: 50%;
+  left: 42%;
+}
