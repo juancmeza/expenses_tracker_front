@@ -344,7 +344,7 @@ function displayLoading(){
       i = 0,
       load = setInterval(function() {
         i = ++i % 4;
-        el.innerHTML = 'Loading' + Array(i + 1).join('.');
+        el.innerHTML = 'Waiting for Herouku Server' + Array(i + 1).join('.');
         }, 600);
       el.className='loadingMessage'
       el.display='flex'
