@@ -323,17 +323,7 @@ function handleLogin(e) {
         return
     }
 
-    let loginForm = document.querySelector('#login-form')
-    loginForm.className = "hidden"
-
-    var el = document.getElementById('loading'),
-    i = 0,
-    load = setInterval(function() {
-      i = ++i % 4;
-      el.innerHTML = 'Loading' + Array(i + 1).join('.');
-      }, 600);
-    el.className='loadingMessage'
-    el.display='flex'
+    displayLoading()
 
     fetch(USERS_URL, {
         method: 'POST',
@@ -344,6 +334,20 @@ function handleLogin(e) {
     })
         .then(resp => resp.json())
         .then(user => setupUI(user))
+}
+
+function displayLoading(){
+      let loginForm = document.querySelector('#login-form')
+      loginForm.className = "hidden"
+
+      var el = document.getElementById('loading'),
+      i = 0,
+      load = setInterval(function() {
+        i = ++i % 4;
+        el.innerHTML = 'Loading' + Array(i + 1).join('.');
+        }, 600);
+      el.className='loadingMessage'
+      el.display='flex'
 }
 
 function setupUI(user) {
