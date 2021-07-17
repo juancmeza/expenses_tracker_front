@@ -81,5 +81,6 @@ code {
   text-transform: uppercase;
   position: absolute;
   top: 50%;
-  left: 42%;
+  left: 25%;
+  max-width: 250px;
 }
