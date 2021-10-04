@@ -340,13 +340,8 @@ function displayLoading(){
       let loginForm = document.querySelector('#login-form')
       loginForm.className = "hidden"
 
-      var el = document.getElementById('loading'),
-      i = 0,
-      load = setInterval(function() {
-        i = ++i % 4;
-        el.innerHTML = 'Waiting for Herouku Server' + Array(i + 1).join('.');
-        }, 600);
-      el.className='loadingMessage'
+      var el = document.getElementById('loading')
+      el.className = "spinner"
       el.display='flex'
 }
 
