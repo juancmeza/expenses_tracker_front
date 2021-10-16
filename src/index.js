@@ -9,6 +9,19 @@ const CATEGORIES_URL = `${BASE_URL}/categories`
 const EXPENSES_URL = `${BASE_URL}/expenses`
 var User = {}
 
+//Keep Heroku Server Running
+const keepAlive = () => {
+  setInterval(function() {
+    fetch(`${USERS_URL}/3`)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res)
+      }
+    )
+  }, 60 * 20 * 1000)
+};
+
+keepAlive()
 
 //Expenses by Categories
 function buildGroupedExpenses(user) {
