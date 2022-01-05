@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     userLogin()
 })
 
-const BASE_URL = "https://bestexpensestracker.herokuapp.com"
+const BASE_URL = "https://bestexpensestracker2.herokuapp.com"
 const USERS_URL = `${BASE_URL}/users`
 const GROUPED_EXPENSES_URL = `${USERS_URL}/expenses_by_categories`
 const CATEGORIES_URL = `${BASE_URL}/categories`
