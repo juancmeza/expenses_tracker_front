@@ -266,6 +266,7 @@ function addNewExpense(expense){
             addExpenseToTable(expense)
             buildGroupedExpenses(User)
         })
+        .catch(error => window.alert("You must select a category and provide a name, amount, and date"))
 }
 
 // Display Budget
