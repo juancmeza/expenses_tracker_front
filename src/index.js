@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     userLogin()
 })
 
-const BASE_URL = "https://bestexpensestracker.herokuapp.com"
+const BASE_URL = "http://localhost:3000"
 const USERS_URL = `${BASE_URL}/users`
 const GROUPED_EXPENSES_URL = `${USERS_URL}/expenses_by_categories`
 const CATEGORIES_URL = `${BASE_URL}/categories`
@@ -234,13 +234,19 @@ function addEventListenerToExpenseForm(user){
         e.preventDefault()
         let select = document.querySelector('.form-select')
 
-        let newAmount = (e.target.amount.value === '') ? 0.00 : e.target.amount.value
-        let newDate = (e.target.date.value === '') ? Date() : e.target.date.value
+        // let newAmount = (e.target.amount.value === '') ? 0.00 : e.target.amount.value
+        let newAmount = e.target.amount.value
+
+        // let newDate = (e.target.date.value === '') ? Date() : e.target.date.value
+        let newDate = e.target.date.value
+
+        let newDescription = (e.target.description.value === '') ? null : e.target.date.value
+
 
         let newExpense = {
                 categoryId: select.options[select.selectedIndex].value,
                 userId: User.id,
-                description: e.target.description.value,
+                description: newDescription,
                 amount: newAmount,
                 date: newDate
             }
@@ -263,10 +269,16 @@ function addNewExpense(expense){
     })
         .then(res => res.json())
         .then(expense => {
-            addExpenseToTable(expense)
-            buildGroupedExpenses(User)
+            console.log(expense)
+            if (!expense.error) {
+              addExpenseToTable(expense)
+              buildGroupedExpenses(User)
+            }
         })
-        .catch(error => window.alert("You must select a category and provide a name, amount, and date"))
+        .catch(error => {
+          console.log('ERROR', error)
+          window.alert("You must select a category and provide a name, amount, and date")
+        })
 }
 
 // Display Budget
