@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     userLogin()
 })
 
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "https://bestexpensestracker.herokuapp.com"
 const USERS_URL = `${BASE_URL}/users`
 const GROUPED_EXPENSES_URL = `${USERS_URL}/expenses_by_categories`
 const CATEGORIES_URL = `${BASE_URL}/categories`
@@ -150,8 +150,8 @@ function handleExpenseEdit(e) {
     e.preventDefault()
     console.log()
     let select = document.querySelector('.form-select-edit')
-    let editedAmount = (e.target.amount.value === '') ? 0.00 : e.target.amount.value
-    let editedDate = (e.target.date.value === '') ? Date() : e.target.date.value
+    let editedAmount = (e.target.amount.value === '') ? null : e.target.amount.value
+    let editedDate = (e.target.date.value === '') ? null : e.target.date.value
 
 
     expId = parseInt(e.target.parentElement.parentElement.id).toString()
@@ -196,10 +196,11 @@ function deleteExpense(expenseId){
         method:'DELETE'
     })
         .then(res => res.json())
-        .then(() => {
+        .then(exp => {
             let expense = document.getElementById(`expense-${expenseId}`)
             expense.remove()
             buildGroupedExpenses(User)
+            window.alert(exp.message)
         })
 }
 
@@ -240,7 +241,7 @@ function addEventListenerToExpenseForm(user){
         // let newDate = (e.target.date.value === '') ? Date() : e.target.date.value
         let newDate = e.target.date.value
 
-        let newDescription = (e.target.description.value === '') ? null : e.target.date.value
+        let newDescription = (e.target.description.value === '') ? null : e.target.description.value
 
 
         let newExpense = {
@@ -269,15 +270,15 @@ function addNewExpense(expense){
     })
         .then(res => res.json())
         .then(expense => {
-            console.log(expense)
             if (!expense.error) {
               addExpenseToTable(expense)
               buildGroupedExpenses(User)
+            } else {
+              window.alert(expense.error)
             }
         })
         .catch(error => {
-          console.log('ERROR', error)
-          window.alert("You must select a category and provide a name, amount, and date")
+          window.alert(error)
         })
 }
 
